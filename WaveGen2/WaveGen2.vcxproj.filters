@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{1c7935d9-39a5-42bc-b063-6c55775dec7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\app">
+      <UniqueIdentifier>{429d09fa-8cd2-4de5-8518-4215c32a5281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pch">
+      <UniqueIdentifier>{f3e697a9-cd54-4b4d-94a2-683ad99d5c55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dlg">
+      <UniqueIdentifier>{aa3b6f4e-1247-4a3f-a4a1-12e2ffc85998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\res">
+      <UniqueIdentifier>{ca4d1b38-0dd0-45f9-b759-41af6297c081}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>src\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainDlg.h">
+      <Filter>src\dlg</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>src\res</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>src\res</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\res</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>src\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainDlg.cpp">
+      <Filter>src\dlg</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\WaveGen2.ico">
+      <Filter>src\res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WaveGen2.rc">
+      <Filter>src\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\WaveGen2.rc2">
+      <Filter>src\res</Filter>
+    </None>
+  </ItemGroup>
+</Project>
