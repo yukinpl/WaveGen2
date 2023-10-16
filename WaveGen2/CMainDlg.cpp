@@ -184,6 +184,7 @@ bool CMainDlg::WriteWaveOnMemory( double const & freq1 , double const & freq2 , 
 
 	uint16_t val[ 400000 ] ;
 	uint32_t valPos = 0 ;
+
 	for( uint32_t pos = 0 ; pos < rawDataSize ; ++pos )
 	{
 		val[ valPos++ ] = static_cast< uint16_t >( amp * sin( 2 * PI * pos * freq1 / sampleRate ) ) ;
@@ -196,13 +197,15 @@ bool CMainDlg::WriteWaveOnMemory( double const & freq1 , double const & freq2 , 
 	outHeader.dwBufferLength = rawDataSize ;
 	outHeader.lpData = ( LPSTR ) val ;
 	outHeader.dwLoops = 0 ;
-	outHeader.dwFlags = WHDR_BEGINLOOP | WHDR_ENDLOOP ;
+	outHeader.dwFlags = WHDR_DONE ; // WHDR_BEGINLOOP | WHDR_ENDLOOP ;
 
 	res = waveOutPrepareHeader( outHandle , & outHeader , sizeof( outHeader ) ) ;
 	if( res )
 	{
 		tmp.Format( _T( "Fail to open - waveOutPrepareHeader(). cause number:[ %d ]" ) , res ) ;
 		//AfxMessageBox( tmp ) ;
+
+		waveOutClose( outHandle ) ;
 		return false ;
 	}
 
@@ -211,6 +214,10 @@ bool CMainDlg::WriteWaveOnMemory( double const & freq1 , double const & freq2 , 
 	{
 		tmp.Format( _T( "Fail to open - waveOutWrite(). cause number:[ %d ]" ) , res ) ;
 		//AfxMessageBox( tmp ) ;
+
+		waveOutUnprepareHeader( outHandle , & outHeader , sizeof( outHeader ) ) ;
+		waveOutClose( outHandle ) ;
+
 		return false ;
 	}
 
